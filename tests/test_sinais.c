@@ -6,27 +6,25 @@ float s_b[SIGNAL_SIZE];
 float res[CORRELATION_SIZE];
 
 int main(void) {
-    int atrasos[6] = {-200, -50, -1, 1, 50, 200};
-    int pos_base = 500;
-    int i, j, k;
+    int larguras[4] = {10, 50, 100, 200};
+    int i, j, k, w;
     int pico_idx;
-    int pos_a, pos_b;
-    int esperado;
     float max_val;
 
-    printf("--- TESTE 2: MULTIPLOS ATRASOS ---\n");
+    printf("--- TESTE 3: SINAIS CONTINUOS (BLOCOS DE LEITURA) ---\n");
 
-    for (k = 0; k < 6; k++) {
+    for (w = 0; w < 4; w++) {
         for (i = 0; i < SIGNAL_SIZE; i++) {
             s_a[i] = 0.0f;
             s_b[i] = 0.0f;
         }
 
-        pos_a = pos_base;
-        pos_b = pos_base + atrasos[k];
-
-        s_a[pos_a] = 1.0f;
-        s_b[pos_b] = 1.0f;
+        for (k = 400; k < 400 + larguras[w]; k++) {
+            s_a[k] = 2.0f;
+        }
+        for (k = 420; k < 420 + larguras[w]; k++) {
+            s_b[k] = 2.0f;
+        }
 
         calcular_correlacao_cruzada(s_a, s_b, res);
 
@@ -40,9 +38,7 @@ int main(void) {
             }
         }
 
-        esperado = 999 - atrasos[k];
-        printf("Atraso de %4d | Esperado: %4d | Resultado: %4d | Valor: %.2f\n", atrasos[k], esperado, pico_idx,
-               max_val);
+        printf("Largura %3d | Esperado: 979 | Resultado: %3d | Valor Max: %.2f\n", larguras[w], pico_idx, max_val);
     }
 
     return 0;

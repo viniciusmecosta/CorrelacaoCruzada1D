@@ -8,3 +8,6 @@ target_include_directories(test_impulso PRIVATE include)
 
 add_executable(test_atraso src/cross_correlation.c tests/test_atraso.c)
 target_include_directories(test_atraso PRIVATE include)
+
+add_executable(test_sinais src/cross_correlation.c tests/test_sinais.c)
+target_include_directories(test_sinais PRIVATE include)

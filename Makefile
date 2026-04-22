@@ -1,19 +1,13 @@
 CC=gcc
-CFLAGS=-Iinclude -Wall -ansi
+CFLAGS=-Iinclude -Wall -ansi -O2
 
-all: build_dir test_impulso test_atraso test_sinais
+all: build_dir test_suite
 
 build_dir:
 	mkdir -p build
 
-test_impulso: src/cross_correlation.c tests/test_impulso.c
-	$(CC) $(CFLAGS) src/cross_correlation.c tests/test_impulso.c -o build/test_impulso
-
-test_atraso: src/cross_correlation.c tests/test_atraso.c
-	$(CC) $(CFLAGS) src/cross_correlation.c tests/test_atraso.c -o build/test_atraso
-
-test_sinais: src/cross_correlation.c tests/test_sinais.c
-	$(CC) $(CFLAGS) src/cross_correlation.c tests/test_sinais.c -o build/test_sinais
+test_suite: src/cross_correlation.c tests/test_suite.c
+	$(CC) $(CFLAGS) src/cross_correlation.c tests/test_suite.c -o build/test_suite
 
 clean:
 	rm -rf build/*

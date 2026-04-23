@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=-Iinclude -Wall -ansi -O2
+CFLAGS=-Iinclude -Wall -ansi
 
 all: build_dir test_suite
 

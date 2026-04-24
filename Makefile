@@ -1,13 +1,13 @@
 CC=gcc
 CFLAGS=-Iinclude -Wall -ansi
 
-all: build_dir test_suite
+all: build_dir test
 
 build_dir:
 	mkdir -p build
 
-test_suite: src/cross_correlation.c tests/test_suite.c
-	$(CC) $(CFLAGS) src/cross_correlation.c tests/test_suite.c -o build/test_suite
+test: src/cross_correlation.c tests/test.c
+	$(CC) $(CFLAGS) src/cross_correlation.c tests/test.c -o build/test
 
 clean:
 	rm -rf build/*

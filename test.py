@@ -41,7 +41,7 @@ def main():
         else:
             status = "\033[91m[✗] Reprovado\033[0m"
             falhas += 1
-            obs = "Divergência algorítmica"
+            obs = "Resultado Divergente"
 
         print(f"{prefix[:25]:<25} | {status:<24} | {erro_maximo:<10.6f} | {obs}")
 

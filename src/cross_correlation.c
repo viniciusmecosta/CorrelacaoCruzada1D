@@ -1,6 +1,6 @@
 #include "cross_correlation.h"
 
-void calcular_correlacao_cruzada(const float x[], const float y[], float resultado[]) {
+void calcular_correlacao_cruzada(float x[], float y[], float resultado[]) {
     int i;
     int j;
     int deslocamento;

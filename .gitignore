@@ -62,3 +62,9 @@ build/
 
 # Arquivos de configuracao locais da IDE (CLion)
 .idea/
+
+venv/
+sinais/
+saidas_c/
+saidas_py/
+*.txt

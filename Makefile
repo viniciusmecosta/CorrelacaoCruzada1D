@@ -10,4 +10,4 @@ test_suite: src/cross_correlation.c tests/test_suite.c
 	$(CC) $(CFLAGS) src/cross_correlation.c tests/test_suite.c -o build/test_suite -lm
 
 clean:
-	rm -rf build/* sinais saidas_c saidas_py
+	rm -rf build/* sinais saidas_c saidas_py report_errors.txt
